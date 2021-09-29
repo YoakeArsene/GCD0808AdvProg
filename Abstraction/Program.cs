@@ -37,6 +37,24 @@ namespace Abstraction
       Console.WriteLine(Hero.Quantity);
 
       Hero.PrintHeroQuantities();
+
+      amazon.PickUp(Item.HealthPotion);
+      amazon.PickUp(Item.HealthPotion);
+      amazon.PickUp(Item.HealthPotion);
+      amazon.PickUp(Item.HealthPotion);
+
+      amazon.PickUp(Item.ManaPotion);
+      amazon.PickUp(Item.ManaPotion);
+      amazon.PickUp(Item.ManaPotion);
+      amazon.PickUp(Item.ManaPotion);
+
+      amazon.PickUp(Item.TownPortal);
+      amazon.PickUp(Item.StaminaPotion);
+
+
+      amazon.PrintInventory();
+
+      Console.ReadLine();
     }
   }
 }

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace Abstraction
 {
@@ -10,6 +11,7 @@ namespace Abstraction
     public int Mana;
     public int AttackPoint;
     public int Level;
+    public Dictionary<Item, int> Inventory;
 
     // Static Member => attribute of Class (not Object)
     public static int Quantity;
@@ -23,6 +25,7 @@ namespace Abstraction
       AttackPoint = -1;
       Level = 0;
       Quantity++;
+      Inventory = new Dictionary<Item, int>();
     }
 
     // Constructor with parameters
@@ -34,6 +37,7 @@ namespace Abstraction
       AttackPoint = attackPoint;
       Level = 1;
       Quantity++;
+      Inventory = new Dictionary<Item, int>();
     }
 
 
@@ -80,5 +84,24 @@ namespace Abstraction
       Console.WriteLine($"Hero quantities: {Quantity}");
     }
 
+    public void PickUp(Item item)
+    {
+      if (!Inventory.ContainsKey(item))
+      {
+        Inventory[item] = 1;
+      }
+      else
+      {
+        Inventory[item]++;
+      }
+    }
+
+    public void PrintInventory()
+    {
+      foreach (var item in Inventory)
+      {
+        Console.WriteLine($"{item.Key} | {item.Value}");
+      }
+    }
   }
 }

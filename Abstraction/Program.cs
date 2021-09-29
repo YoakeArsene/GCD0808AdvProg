@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace Abstraction
+﻿namespace Abstraction
 {
   class Program
   {
@@ -8,8 +6,8 @@ namespace Abstraction
     {
       // Use keyword "new" to create object from class
       Hero hero = new Hero();
-      Hero amazon = new Hero();
-      Hero paladin = new Hero();
+      Hero amazon = new Hero("Wonder Woman", 100, 150, 299);
+      Hero paladin = new Hero("Batman", 250, 50, 499);
 
       // To access function or property of object, use "."
       hero.FullName = "Illidan";
@@ -18,11 +16,9 @@ namespace Abstraction
       hero.Mana = 100;
       hero.AttackPoint = 150;
 
-      Console.WriteLine(hero.FullName);
-      Console.WriteLine(hero.HP);
-      Console.WriteLine(hero.Mana);
-      Console.WriteLine(hero.Level);
-      Console.WriteLine(hero.AttackPoint);
+      hero.PrintInfo();
+      amazon.PrintInfo();
+      paladin.PrintInfo();
 
       hero.Attack();
       hero.Jump();

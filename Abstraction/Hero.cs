@@ -11,6 +11,9 @@ namespace Abstraction
     public int AttackPoint;
     public int Level;
 
+    // Static Member => attribute of Class (not Object)
+    public static int Quantity;
+
     // Constructor without parameters
     public Hero()
     {
@@ -19,6 +22,7 @@ namespace Abstraction
       Mana = -1;
       AttackPoint = -1;
       Level = 0;
+      Quantity++;
     }
 
     // Constructor with parameters
@@ -29,6 +33,7 @@ namespace Abstraction
       Mana = mana;
       AttackPoint = attackPoint;
       Level = 1;
+      Quantity++;
     }
 
 
@@ -67,6 +72,12 @@ namespace Abstraction
         monster.HP = monster.HP - difference;
         Console.WriteLine($"Current HP of {monster.FullName} is: {monster.HP} ");
       }
+    }
+
+    // Static function
+    public static void PrintHeroQuantities()
+    {
+      Console.WriteLine($"Hero quantities: {Quantity}");
     }
 
   }

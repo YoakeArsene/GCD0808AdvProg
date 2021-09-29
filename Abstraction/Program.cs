@@ -1,4 +1,6 @@
-﻿namespace Abstraction
+﻿using System;
+
+namespace Abstraction
 {
   class Program
   {
@@ -8,6 +10,8 @@
       Hero hero = new Hero();
       Hero amazon = new Hero("Wonder Woman", 100, 150, 299);
       Hero paladin = new Hero("Batman", 250, 50, 499);
+      Hero assassin = new Hero("Natalya", 40, 100, 149);
+      Hero barbarian = new Hero("John Cena", 400, 20, 249);
 
       Monster dragon = new Monster("Blue Dragon", 100, 200);
 
@@ -30,7 +34,9 @@
       paladin.Attack(dragon);
       hero.Attack(dragon);
 
-    }
+      Console.WriteLine(Hero.Quantity);
 
+      Hero.PrintHeroQuantities();
+    }
   }
 }

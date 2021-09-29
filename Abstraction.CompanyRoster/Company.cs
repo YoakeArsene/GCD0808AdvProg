@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 
 namespace Abstraction.CompanyRoster
@@ -12,15 +13,23 @@ namespace Abstraction.CompanyRoster
       Employees = new List<Employee>();
     }
 
-    public decimal GetHighestAverageSalary()
+    public void GetDepartmentWithHighestAverageSalary()
     {
-      return 0;
+      var department =
+        from e in Employees
+        group e by e.Department into g
+        select new { Department = g.Key, AverageSalary = g.Average(p => p.Salary) };
+
+      var resultDepartment = department
+        .FirstOrDefault(t => t.AverageSalary == department.Max(e => e.AverageSalary))
+        .Department;
+
+      Console.WriteLine($"Highest Average Salary: {resultDepartment}");
+
+      PrintEmployees(resultDepartment);
     }
 
-    public string GetDepartmentWithHighestAverageSalary()
-    {
-      return "";
-    }
+
 
     public void PrintEmployees(string department)
     {
@@ -30,6 +39,11 @@ namespace Abstraction.CompanyRoster
       {
         employee.PrintInfo();
       }
+    }
+
+    public void AddEmployee(Employee employee)
+    {
+      Employees.Add(employee);
     }
   }
 }

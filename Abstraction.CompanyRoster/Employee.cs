@@ -21,6 +21,8 @@ namespace Abstraction.CompanyRoster
       Salary = salary;
       Position = position;
       Department = department;
+      Email = "";
+      Age = 0;
     }
 
     public Employee(string name, decimal salary, string position, string department,

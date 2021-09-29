@@ -53,5 +53,21 @@ namespace Abstraction
       Console.WriteLine($"{FullName} | HP: {HP} | MANA: {Mana} | ATTK: {AttackPoint} | LVL: {Level}");
     }
 
+    public void Attack(Monster monster)
+    {
+      Console.WriteLine($"{FullName} is attacking {monster.FullName}");
+      var difference = AttackPoint - monster.Defense;
+      if (difference <= 0)
+      {
+        Console.WriteLine("No Effect ...");
+      }
+      else
+      {
+        Console.WriteLine("Effected ...");
+        monster.HP = monster.HP - difference;
+        Console.WriteLine($"Current HP of {monster.FullName} is: {monster.HP} ");
+      }
+    }
+
   }
 }
